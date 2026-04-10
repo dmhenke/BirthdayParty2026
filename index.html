@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bring Your Buns Over — June 13</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:    #f4efe4;
+      --bun:      #e5b47a;
+      --bun-dark: #d4935a;
+      --frank:    #b83322;
+      --frank-mid:#c94030;
+      --yellow:   #f5c518;
+      --yellow-dk:#e0ad00;
+      --ink:      #1e1b18;
+      --muted:    #7a7060;
+      --navy:     #1c3557;
+      --red-acc:  #c0392b;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      font-family: 'Jost', sans-serif;
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    /* ─── CARD WRAPPER ─── */
+    .page {
+      max-width: 520px;
+      margin: 0 auto;
+      padding-bottom: 80px;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      width: 100%;
+      padding: 32px 20px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeUp .9s ease both;
+    }
+
+    .hero svg.hotdog {
+      width: 100%;
+      max-width: 440px;
+      filter: drop-shadow(0 8px 28px rgba(0,0,0,.15));
+    }
+
+    .hero-date {
+      margin-top: 20px;
+      font-family: 'Jost', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--red-acc);
+      text-align: center;
+    }
+
+    .hero-icon {
+      font-size: 26px;
+      margin-top: 6px;
+      animation: wiggle 3s ease-in-out infinite;
+    }
+
+    @keyframes wiggle {
+      0%,100% { transform: rotate(-5deg); }
+      50%      { transform: rotate(5deg); }
+    }
+
+    /* ─── DIVIDER ─── */
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: var(--bun-dark);
+      border-radius: 2px;
+      margin: 32px auto;
+      opacity: .55;
+    }
+
+    /* ─── SECTION LABEL ─── */
+    .label {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    /* ─── TO CELEBRATE ─── */
+    .celebrate {
+      text-align: center;
+      padding: 0 24px;
+      animation: fadeUp .9s .15s ease both;
+    }
+
+    .celebrate h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    /* ─── HOST ─── */
+    .host-section {
+      text-align: center;
+      padding: 0 24px;
+      animation: fadeUp .9s .25s ease both;
+    }
+
+    .host-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    /* ─── BODY COPY ─── */
+    .body-copy {
+      text-align: center;
+      padding: 0 28px;
+      line-height: 1.9;
+      font-size: 15.5px;
+      font-weight: 300;
+      color: var(--ink);
+      animation: fadeUp .9s .35s ease both;
+    }
+
+    /* ─── EVENT META ─── */
+    .meta-section {
+      text-align: center;
+      padding: 0 24px;
+      animation: fadeUp .9s .45s ease both;
+    }
+
+    .meta-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-style: italic;
+      color: var(--navy);
+      border-bottom: 1.5px solid var(--navy);
+      display: inline-block;
+      padding-bottom: 2px;
+      margin-bottom: 6px;
+    }
+
+    .meta-value.plain {
+      font-style: normal;
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      font-size: 15px;
+    }
+
+    /* ─── RSVP SECTION ─── */
+    .rsvp-section {
+      margin: 0 20px;
+      background: #fff8ee;
+      border: 1.5px solid #e4d5bc;
+      border-radius: 16px;
+      padding: 36px 32px 40px;
+      animation: fadeUp .9s .55s ease both;
+      box-shadow: 0 4px 24px rgba(0,0,0,.06);
+    }
+
+    .rsvp-section h3 {
+      font-family: 'Pacifico', cursive;
+      font-size: 26px;
+      color: var(--frank);
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    .rsvp-section .rsvp-sub {
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: .05em;
+      margin-bottom: 28px;
+    }
+
+    /* form */
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 7px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="number"],
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      border: 1.5px solid #ddd0be;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-family: 'Jost', sans-serif;
+      font-size: 15px;
+      background: #fffdf8;
+      color: var(--ink);
+      transition: border-color .2s, box-shadow .2s;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--frank-mid);
+      box-shadow: 0 0 0 3px rgba(201,64,48,.12);
+    }
+
+    .form-group textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    /* attendance toggle */
+    .attend-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .attend-btn {
+      flex: 1;
+      padding: 11px 6px;
+      border: 1.5px solid #ddd0be;
+      border-radius: 8px;
+      background: #fffdf8;
+      font-family: 'Jost', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all .2s;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .attend-btn:hover  { border-color: var(--frank-mid); color: var(--frank-mid); }
+
+    .attend-btn.yes.active   { background: #fef3f0; border-color: var(--frank); color: var(--frank); }
+    .attend-btn.maybe.active { background: #fefce8; border-color: #b59500; color: #8a6e00; }
+    .attend-btn.no.active    { background: #f0f4f9; border-color: var(--navy); color: var(--navy); }
+
+    /* submit */
+    .btn-submit {
+      width: 100%;
+      margin-top: 6px;
+      padding: 15px;
+      background: var(--frank);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-family: 'Jost', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background .2s, transform .1s;
+    }
+
+    .btn-submit:hover  { background: var(--frank-mid); }
+    .btn-submit:active { transform: scale(.98); }
+
+    /* success */
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 16px;
+      background: #f0faf4;
+      border: 1.5px solid #7ecb9c;
+      border-radius: 10px;
+      margin-top: 16px;
+      font-size: 15px;
+      color: #1a7a4a;
+    }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      text-align: center;
+      padding: 40px 24px 0;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: .06em;
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 420px) {
+      .rsvp-section { padding: 28px 20px 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ══ HERO ══ -->
+  <div class="hero">
+    <!-- Hot dog SVG illustration -->
+    <svg class="hotdog" viewBox="0 0 440 520" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- bun texture gradient -->
+        <radialGradient id="bunTop" cx="50%" cy="40%" r="60%">
+          <stop offset="0%" stop-color="#f0c98a"/>
+          <stop offset="100%" stop-color="#d4935a"/>
+        </radialGradient>
+        <radialGradient id="bunMid" cx="50%" cy="60%" r="60%">
+          <stop offset="0%" stop-color="#e8b474"/>
+          <stop offset="100%" stop-color="#c97c40"/>
+        </radialGradient>
+        <radialGradient id="frankGrad" cx="50%" cy="35%" r="55%">
+          <stop offset="0%" stop-color="#d44030"/>
+          <stop offset="70%" stop-color="#9c2015"/>
+          <stop offset="100%" stop-color="#7a1810"/>
+        </radialGradient>
+        <radialGradient id="frankGrad2" cx="50%" cy="35%" r="55%">
+          <stop offset="0%" stop-color="#d44030"/>
+          <stop offset="70%" stop-color="#9c2015"/>
+          <stop offset="100%" stop-color="#7a1810"/>
+        </radialGradient>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+          <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="rgba(0,0,0,.2)"/>
+        </filter>
+      </defs>
+
+      <!-- TOP BUN -->
+      <path d="
+        M 60 210
+        Q 50 140 100 100
+        Q 160 55 220 50
+        Q 280 45 340 70
+        Q 395 95 400 150
+        Q 415 195 390 215
+        Q 340 235 280 240
+        Q 220 248 160 240
+        Q 110 234 60 210 Z
+      " fill="url(#bunTop)" filter="url(#shadow)"/>
+
+      <!-- Top bun underside curve -->
+      <path d="
+        M 60 210
+        Q 100 232 160 238
+        Q 220 246 280 238
+        Q 340 232 390 215
+        Q 370 228 320 235
+        Q 260 244 220 245
+        Q 165 244 110 232
+        Q 80 225 60 210 Z
+      " fill="#c97c40" opacity=".55"/>
+
+      <!-- FRANK 1 -->
+      <path d="
+        M 45 240
+        Q 42 260 55 278
+        Q 90 300 160 308
+        Q 220 314 280 308
+        Q 350 300 390 278
+        Q 405 260 400 240
+        Q 380 260 320 270
+        Q 260 278 220 278
+        Q 165 278 105 268
+        Q 68 260 45 240 Z
+      " fill="url(#frankGrad)" filter="url(#shadow)"/>
+
+      <!-- MIDDLE BUN -->
+      <path d="
+        M 40 278
+        Q 36 300 48 320
+        Q 80 342 155 350
+        Q 220 356 285 350
+        Q 360 342 395 318
+        Q 408 298 400 278
+        Q 375 296 315 305
+        Q 260 312 220 312
+        Q 165 312 108 304
+        Q 70 296 40 278 Z
+      " fill="url(#bunMid)" filter="url(#shadow)"/>
+
+      <!-- Middle bun underside -->
+      <path d="
+        M 40 320
+        Q 75 340 150 348
+        Q 220 354 285 348
+        Q 360 340 400 318
+        Q 380 334 318 342
+        Q 260 348 220 349
+        Q 165 348 108 340
+        Q 72 334 40 320 Z
+      " fill="#c07038" opacity=".5"/>
+
+      <!-- FRANK 2 -->
+      <path d="
+        M 35 348
+        Q 32 368 44 388
+        Q 78 410 155 418
+        Q 220 424 285 418
+        Q 362 408 397 385
+        Q 410 365 405 348
+        Q 380 368 315 376
+        Q 260 382 220 382
+        Q 165 382 108 374
+        Q 68 366 35 348 Z
+      " fill="url(#frankGrad2)" filter="url(#shadow)"/>
+
+      <!-- BOTTOM BUN -->
+      <path d="
+        M 32 388
+        Q 30 420 58 444
+        Q 110 470 220 474
+        Q 330 470 385 444
+        Q 415 418 410 388
+        Q 382 408 316 416
+        Q 260 422 220 422
+        Q 165 422 108 416
+        Q 68 408 32 388 Z
+      " fill="url(#bunTop)" filter="url(#shadow)"/>
+
+      <!-- Arrow decorations left -->
+      <polygon points="28,255 42,248 42,262" fill="#c0392b"/>
+      <polygon points="22,316 36,308 36,324" fill="#c0392b"/>
+      <polygon points="18,382 32,374 32,390" fill="#c0392b"/>
+      <!-- Arrow decorations right -->
+      <polygon points="412,255 398,248 398,262" fill="#c0392b"/>
+      <polygon points="418,316 404,308 404,324" fill="#c0392b"/>
+      <polygon points="422,382 408,374 408,390" fill="#c0392b"/>
+
+      <!-- Text: "Bring Your" -->
+      <text
+        x="220" y="172"
+        text-anchor="middle"
+        font-family="Pacifico, cursive"
+        font-size="52"
+        fill="#f5c518"
+        paint-order="stroke"
+        stroke="#c8940a"
+        stroke-width="2.5"
+        stroke-linejoin="round"
+      >Bring Your</text>
+
+      <!-- Text: "Buns Over" -->
+      <text
+        x="220" y="300"
+        text-anchor="middle"
+        font-family="Pacifico, cursive"
+        font-size="52"
+        fill="#f5c518"
+        paint-order="stroke"
+        stroke="#c8940a"
+        stroke-width="2.5"
+        stroke-linejoin="round"
+      >Buns Over</text>
+    </svg>
+
+    <p class="hero-date">Saturday, June 13th</p>
+    <div class="hero-icon">🕶️</div>
+  </div>
+
+  <!-- ══ TO CELEBRATE ══ -->
+  <div class="divider"></div>
+  <div class="celebrate">
+    <h2>To Celebrate</h2>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══ HOSTED BY ══ -->
+  <div class="host-section">
+    <p class="label">Hosted by</p>
+    <p class="host-name">Isha Gupta</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══ BODY COPY ══ -->
+  <div class="body-copy">
+    <p>Ankita (35) &amp; David (40) turning a "weenie" bit older</p>
+    <p>Come "relish" the moment</p>
+    <p>There will be beats, booze, and brats</p>
+    <p>This will be an outdoor event</p>
+    <p>It would be the "wurst" to miss it</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══ DATE ══ -->
+  <div class="meta-section">
+    <p class="label">Date</p>
+    <p class="meta-value">Saturday, June 13</p><br/>
+    <p class="meta-value plain">11:30 AM – 2:00 PM MDT</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══ ADDRESS ══ -->
+  <div class="meta-section">
+    <p class="label">Address</p>
+    <p class="meta-value">My Residence</p><br/>
+    <p class="meta-value plain">2618 East Sherwood Drive</p><br/>
+    <p class="meta-value plain">Salt Lake City, UT 84108</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══ RSVP FORM ══ -->
+  <div class="rsvp-section">
+    <h3>RSVP</h3>
+    <p class="rsvp-sub">Don't leave us in a pickle — let us know you're coming!</p>
+
+    <form id="rsvpForm" onsubmit="submitRSVP(event)">
+
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" id="name" placeholder="First &amp; Last Name" required />
+      </div>
+
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" id="email" placeholder="you@example.com" required />
+      </div>
+
+      <div class="form-group">
+        <label>Will You Attend?</label>
+        <div class="attend-group">
+          <button type="button" class="attend-btn yes"   onclick="selectAttend('yes',   this)">🌭 Yes!</button>
+          <button type="button" class="attend-btn maybe" onclick="selectAttend('maybe', this)">🤔 Maybe</button>
+          <button type="button" class="attend-btn no"    onclick="selectAttend('no',    this)">😢 Can't make it</button>
+        </div>
+        <input type="hidden" id="attendance" required />
+      </div>
+
+      <div class="form-group" id="guestCountGroup">
+        <label>Number of Guests (including yourself)</label>
+        <input type="number" id="guestCount" min="1" max="10" value="1" />
+      </div>
+
+      <div class="form-group">
+        <label>Dietary Restrictions or Notes</label>
+        <textarea id="notes" placeholder="Allergies, dietary needs, or anything else…"></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit">Send My RSVP 🌭</button>
+    </form>
+
+    <div class="success-msg" id="successMsg">
+      🎉 Thanks for your RSVP! We can't wait to celebrate with you. See you June 13th!
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Questions? Reach out to Isha Gupta &nbsp;·&nbsp; 2618 E Sherwood Dr, SLC UT 84108</p>
+  </div>
+
+</div><!-- /page -->
+
+<script>
+  let selectedAttendance = '';
+
+  function selectAttend(val, el) {
+    selectedAttendance = val;
+    document.getElementById('attendance').value = val;
+    document.querySelectorAll('.attend-btn').forEach(b => b.classList.remove('active'));
+    el.classList.add('active');
+
+    // Hide guest count if not attending
+    const gc = document.getElementById('guestCountGroup');
+    gc.style.display = (val === 'no') ? 'none' : 'block';
+  }
+
+  function submitRSVP(e) {
+    e.preventDefault();
+
+    const attendance = document.getElementById('attendance').value;
+    if (!attendance) {
+      alert('Please select whether you\'ll attend.');
+      return;
+    }
+
+    // Collect data
+    const data = {
+      name:       document.getElementById('name').value,
+      email:      document.getElementById('email').value,
+      attendance: attendance,
+      guests:     document.getElementById('guestCount').value,
+      notes:      document.getElementById('notes').value,
+    };
+
+    // For a static GitHub Pages site, we log the response and show confirmation.
+    // To capture real responses, connect a backend (Formspree, Netlify Forms, etc.)
+    console.log('RSVP submitted:', data);
+
+    document.getElementById('rsvpForm').style.display = 'none';
+    const msg = document.getElementById('successMsg');
+    msg.style.display = 'block';
+
+    // Optionally send to Formspree – replace YOUR_FORM_ID with your Formspree endpoint
+    // fetch('https://formspree.io/f/YOUR_FORM_ID', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(data)
+    // });
+  }
+</script>
+
+</body>
+</html>
